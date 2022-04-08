@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EEF9BF;
+    flex-direction: column;
+}
+
+.centralizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 56px;
+}
+
+.container {
+    flex-wrap: wrap;
+}
+
+.carta {
+    background-color: #A7E9AF;
+    height: 146px;
+    width: 117px;
+    border-radius: 5px;
+    margin: 40px 20px 0 20px;   
+}
+
+.carta img {
+    width: 100px;
+    height: 100px;
+}
