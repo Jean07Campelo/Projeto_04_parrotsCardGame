@@ -1,4 +1,4 @@
-
+/*
 let quantCartas;
 
 //lê entrada do usuario e converte para number
@@ -21,3 +21,13 @@ function verificaEntrada () {
 
 //chamada de funcoes
 leituraEntrada()
+
+*/
+
+function selecionar (elemento) {
+    let verso = elemento.querySelector(".verso")
+    let frente = elemento.querySelector(".frente")
+
+    verso.classList.toggle("esconder")
+    frente.classList.toggle("esconder")
+}
