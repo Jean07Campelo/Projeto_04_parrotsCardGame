@@ -1,6 +1,23 @@
 
-let intervaloValido = [4, 6, 8, 10, 12, 14];
+let quantCartas;
 
 //lê entrada do usuario e converte para number
-const quantCartas = Number(prompt("Com quantas cartas deseja jogar?"));
+function leituraEntrada () {
+    quantCartas = Number(prompt("Com quantas cartas deseja jogar?"));
+    verificaEntrada();
+}
 
+//verifica se entrada do usuario eh valida
+function verificaEntrada () {
+    while (quantCartas % 2 !== 0 || quantCartas < 4 || quantCartas > 14) {
+        console.log(`quantidade inválida: ${quantCartas}`)
+        leituraEntrada()
+        
+    }
+//chamar funcao para começar jogo
+    console.log(`parabéns, entrada válida: ${quantCartas}`)
+}
+
+
+//chamada de funcoes
+leituraEntrada()
