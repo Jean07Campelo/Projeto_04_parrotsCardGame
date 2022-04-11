@@ -3,9 +3,11 @@ let quantCartas;
 let container = document.querySelector(".cartas");
 let cartasEmbaralhadas = [];
 let selecionada;
-let cartaClicada;
 let cartasClicadas = [];
-let jogadaPar;
+let verso;
+let frente;
+let cartasIguais;
+let cartaClicada;
 
 //funcao usada na .sort
 function comparador() { 
@@ -40,7 +42,7 @@ function verificaEntrada () {
     embaralharBanco()
     cartasSelecionadas()
     //iniciarJogo()
-    console.log(`parabéns, entrada válida: ${quantCartas}`)
+    console.log(`entrada válida: ${quantCartas}`)
     return quantCartas;    
 }
 
@@ -75,52 +77,42 @@ function embaralhaSelecionadas () {
 //iniciar jogo com entrada usuario
 function iniciarJogo() {
     for (let i = 0; i < cartasEmbaralhadas.length ; i++) {
-
         container.innerHTML += 
-        `
-        <li class="carta centralizar" onclick="selecionar(this)">
+        `<li class="carta centralizar" onclick="selecionar(this)">
             <img class ="verso" src="/images/front.png">
             <img class="frente centralizar esconder" src="${cartasEmbaralhadas[i]}">
-        </li>
-
-        `
+        </li>`
     }
 }
 
 //clique na carta
 let quantCliques = 0;
 function selecionar (elemento) {
-    let verso = elemento.querySelector(".verso")
-    let frente = elemento.querySelector(".frente")
+    verso = elemento.querySelector(".verso")
+    frente = elemento.querySelector(".frente")
 
     verso.classList.toggle("esconder")
     frente.classList.toggle("esconder")
     frente.classList.toggle("selecionada");
     
-
-    cartaClicada = elemento.querySelector(".selecionada").src
+    cartaClicada = elemento.querySelector(".selecionada")
     cartasClicadas.push(cartaClicada);
     quantCliques++;
     //chamar funcao para verificar carta
     verificaCartasPares()
 }
-
-
 function verificaCartasPares () {
     
-    for (let i = 0; i < cartasClicadas.length ; i++) {
-
-        let cartasIguais = cartasClicadas[i] === cartasClicadas[i-1];
-        jogadaPar = quantCliques % 2 === 0;
+    for (let i = 0; i < cartasEmbaralhadas.length ; i++) {
+        cartasIguais = cartasClicadas[i] == cartasClicadas[i-1];
+        let jogadaPar = quantCliques % 2 === 0;
         
-        if (jogadaPar && cartasIguais) {
-            console.log("cartas iguais!!")
-        }
-        else {
-            console.log(`diferentes`)
+        if (jogadaPar && !cartasIguais) {
+            console.log("cartas diferentes")
+            verso.classList.toggle("esconder")
+            frente.classList.toggle("esconder");
         } 
     }
- 
 }
 
 
