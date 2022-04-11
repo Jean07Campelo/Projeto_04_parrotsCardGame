@@ -3,6 +3,9 @@ let quantCartas;
 let container = document.querySelector(".cartas");
 let cartasEmbaralhadas = [];
 let selecionada;
+let cartaClicada;
+let cartasClicadas = [];
+let jogadaPar;
 
 //funcao usada na .sort
 function comparador() { 
@@ -93,23 +96,33 @@ function selecionar (elemento) {
     verso.classList.toggle("esconder")
     frente.classList.toggle("esconder")
     frente.classList.toggle("selecionada");
-quantCliques++;
+    
+
+    cartaClicada = elemento.querySelector(".selecionada").src
+    cartasClicadas.push(cartaClicada);
+    quantCliques++;
     //chamar funcao para verificar carta
     verificaCartasPares()
 }
 
+
 function verificaCartasPares () {
-    //cliques impares:
-    if (quantCliques % 2 === 1) {
-        console.log(`cliques: ${quantCliques}`)
+    
+    for (let i = 0; i < cartasClicadas.length ; i++) {
 
-    } 
-    //cliques pares
-    else {
-        console.log(`cliques: ${quantCliques}`)
-
+        let cartasIguais = cartasClicadas[i] === cartasClicadas[i-1];
+        jogadaPar = quantCliques % 2 === 0;
+        
+        if (jogadaPar && cartasIguais) {
+            console.log("cartas iguais!!")
+        }
+        else {
+            console.log(`diferentes`)
+        } 
     }
+ 
 }
+
 
 
 //chamada de funcoes
