@@ -17,7 +17,7 @@ body {
     font-size: 56px;
 }
 
-.container {
+.cartas {
     flex-wrap: wrap;
 }
 
@@ -34,9 +34,9 @@ body {
     height: 100px;
 }
 
-.carta .frente {
-    width: 80px;
-    height: 80px;
+.carta .frente{
+    width: 70px;
+    height: 70px;
 }
 
 .esconder {
