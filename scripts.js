@@ -1,6 +1,7 @@
 
 let quantCartas;
 let container = document.querySelector(".cartas");
+let cartasEmbaralhadas = [];
 
 //funcao usada na .sort
 function comparador() { 
@@ -33,6 +34,7 @@ function verificaEntrada () {
     }
 //chamar funcao para começar jogo
     embaralharBanco()
+    cartasSelecionadas()
     iniciarJogo()
     console.log(`parabéns, entrada válida: ${quantCartas}`)
     return quantCartas;    
@@ -44,6 +46,12 @@ function embaralharBanco () {
     bancoImagens = bancoImagens.sort(comparador);
     }
 
+//separar quantidade cartas selecionada
+function cartasSelecionadas () {
+    for (let i = 0 ; i < (quantCartas/2) ; i++) {
+        cartasEmbaralhadas.push(bancoImagens[i]);
+    }
+}
 
 //iniciar jogo com entrada usuario
 function iniciarJogo() {
