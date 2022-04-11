@@ -59,7 +59,13 @@ function ajustaSelecionadas () {
     for (let i = 0 ; i < quantCartas/2 ; i++) {
         cartasEmbaralhadas.push(cartasEmbaralhadas[i]);
     }
-    iniciarJogo()    
+    embaralhaSelecionadas()    
+}
+
+//embaralha quant de cartas selecionadas
+function embaralhaSelecionadas () {
+    cartasEmbaralhadas.sort(comparador);
+    iniciarJogo()
 }
 
 //iniciar jogo com entrada usuario
