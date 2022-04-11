@@ -35,7 +35,7 @@ function verificaEntrada () {
 //chamar funcao para começar jogo
     embaralharBanco()
     cartasSelecionadas()
-    iniciarJogo()
+    //iniciarJogo()
     console.log(`parabéns, entrada válida: ${quantCartas}`)
     return quantCartas;    
 }
@@ -51,16 +51,26 @@ function cartasSelecionadas () {
     for (let i = 0 ; i < (quantCartas/2) ; i++) {
         cartasEmbaralhadas.push(bancoImagens[i]);
     }
+    ajustaSelecionadas()
+}
+
+//dobra quantidade de cartasEmbaralhadas
+function ajustaSelecionadas () {
+    for (let i = 0 ; i < quantCartas/2 ; i++) {
+        cartasEmbaralhadas.push(cartasEmbaralhadas[i]);
+    }
+    iniciarJogo()    
 }
 
 //iniciar jogo com entrada usuario
 function iniciarJogo() {
-    for (let i = 0; i < quantCartas; i++) {
+    for (let i = 0; i < cartasEmbaralhadas.length ; i++) {
 
         container.innerHTML += 
         `
         <li class="carta centralizar" onclick="selecionar(this)">
-            <img class="verso" src="/images/front.png">
+            <img class ="verso" src="/images/front.png">
+            <img class="frente centralizar esconder" src="${cartasEmbaralhadas[i]}">
         </li>
 
         `
