@@ -85,6 +85,7 @@ function iniciarJogo() {
 }
 
 //clique na carta
+let quantCliques = 0;
 function selecionar (elemento) {
     let verso = elemento.querySelector(".verso")
     let frente = elemento.querySelector(".frente")
@@ -92,20 +93,23 @@ function selecionar (elemento) {
     verso.classList.toggle("esconder")
     frente.classList.toggle("esconder")
     frente.classList.toggle("selecionada");
+quantCliques++;
     //chamar funcao para verificar carta
-    verificarCarta()
+    verificaCartasPares()
 }
 
-let quantJogadas = 0
-function verificarCarta() {
-    selecionada = document.contains(selecionada);
-    
-    if ()
-    
-quantJogadas++
+function verificaCartasPares () {
+    //cliques impares:
+    if (quantCliques % 2 === 1) {
+        console.log(`cliques: ${quantCliques}`)
+
+    } 
+    //cliques pares
+    else {
+        console.log(`cliques: ${quantCliques}`)
+
+    }
 }
-
-
 
 
 //chamada de funcoes
