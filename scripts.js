@@ -2,6 +2,7 @@
 let quantCartas;
 let container = document.querySelector(".cartas");
 let cartasEmbaralhadas = [];
+let selecionada;
 
 //funcao usada na .sort
 function comparador() { 
@@ -83,13 +84,28 @@ function iniciarJogo() {
     }
 }
 
+//clique na carta
 function selecionar (elemento) {
     let verso = elemento.querySelector(".verso")
     let frente = elemento.querySelector(".frente")
 
     verso.classList.toggle("esconder")
     frente.classList.toggle("esconder")
+    frente.classList.toggle("selecionada");
+    //chamar funcao para verificar carta
+    verificarCarta()
 }
+
+let quantJogadas = 0
+function verificarCarta() {
+    selecionada = document.contains(selecionada);
+    
+    if ()
+    
+quantJogadas++
+}
+
+
 
 
 //chamada de funcoes
